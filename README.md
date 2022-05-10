@@ -91,15 +91,15 @@ app = Flask(__name__)
  
 @app.route("/")
 def hello():
-   return "Hello world!!!"
+   return "CI CD Pipelie!!!"
  
  
 if __name__ == "__main__":
-   port = int(os.environ.get("PORT", 5000))
+   port = int(os.environ.get("PORT", 5001))
    app.run(debug=True, host='0.0.0.0', port=port)
 ```
  
-The above code when run will start a web server on port number 5000. You can test the code by running it.
+The above code when run will start a web server on port number 5001. You can test the code by running it.
  
 ```bash
 python app.py
@@ -109,7 +109,7 @@ You should see the output below after running the above command.
  
 ![run-app](images/run_app_border.png)
  
-Open your browser and visit [](http://127.0.0.1:5000). You should see "Hello world" printed on the browser.
+Open your browser and visit [](http://127.0.0.1:5001). You should see "CI CD Pipeline!!!" printed on the browser.
  
 ![hello-world-browser](images/hello_world_browser_border.png)
  
@@ -130,7 +130,7 @@ from app import app
 def test_hello():
    response = app.test_client().get('/')
    assert response.status_code == 200
-   assert response.data == b'Hello world!!!'
+   assert response.data == b'CI CD Pipeline!!!'
 ```
  
 Run the test file using pytest.
@@ -189,7 +189,7 @@ docker build -t flask-hello-world .
 Run the application using docker image.
  
 ```bash
-docker run -it -p 5000:5000 flask-hello-world
+docker run -it -p 5001:5001 flask-hello-world
 ```
  
 Run test case
@@ -209,9 +209,9 @@ You can verify if the application is running by opening the page in the browser.
 Push the image to dockerhub. You will need an account on docker hub for this.
  
 ```bash
-docker login # Login to docker hub
-docker tag flask-hello-world shivammitra/flask-hello-world # Replace <shivammitra> with your docker hub username
-docker push shivammitra/flask-hello-world
+docker login --username=madhav6798 # Login to docker hub
+docker tag flask-hello-world madhav6798/cicd:flask-hello-world # Replace <shivammitra> with your docker hub username
+docker push madhav6798/cicd:flask-hello-world
 ```
  
 ## Push the code to github
@@ -277,7 +277,7 @@ Click on "New Item" on the top left corner of the homepage.
  
 ![new-item-jenkins](images/new_item_jenkins_border.png)
  
-Enter a name, select "Pipeline" and click next.
+Enter a name(cicd), select "Pipeline" and click next.
  
 ![select-jenkins-item](images/select_jenkins_item_border.png)
  
