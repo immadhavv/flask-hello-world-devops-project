@@ -10,11 +10,11 @@ pipeline {
    }
   
    stages {
-      stage('Checkout') {
-          steps {
-              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/immadhavv/flask-hello-world-devops-project']]])
-          }
-      }
+    //   stage('Checkout') {
+    //       steps {
+    //           checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/immadhavv/flask-hello-world-devops-project']]])
+    //       }
+    //   }
        stage('Build') {
            steps {
                echo 'Building..'
