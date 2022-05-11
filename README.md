@@ -292,7 +292,7 @@ pipeline {
    agent any
   
    environment {
-       DOCKER_HUB_REPO = "shivammitra/flask-hello-world"
+       DOCKER_HUB_REPO = "madhav6798/cicd:flask-hello-world"
        CONTAINER_NAME = "flask-hello-world"
  
    }

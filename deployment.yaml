@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-hello-deployment # name of the deployment
+  name: cicd-deployment # name of the deployment
 
 spec:
   template: # pod defintion
     metadata:
-      name: flask-hello # name of the pod
+      name: cicdpod # name of the pod
       labels:
-        app: flask-hello
+        app: cicdpod
         tier: frontend
     spec:
       containers:
-        - name: flask-hello
-          image: shivammitra/flask-hello-world:latest
+        - name: flask-hello-world-container
+          image: madhav6798/cicd:flask-hello-world
   replicas: 3
   selector: # Mandatory, Select the pods which needs to be in the replicaset
     matchLabels:
-      app: flask-hello
+      app: cicdpod
       tier: frontend
